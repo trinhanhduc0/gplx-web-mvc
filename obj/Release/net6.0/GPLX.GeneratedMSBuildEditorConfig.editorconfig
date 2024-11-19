@@ -1,0 +1,187 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = GPLX
+build_property.RootNamespace = GPLX
+build_property.ProjectDir = C:\Users\dh520\source\repos\GPLX\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\dh520\source\repos\GPLX
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/dh520/source/repos/GPLX/Views/Cauhoi/Chuong.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F1aG9pXENodW9uZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dh520/source/repos/GPLX/Views/Cauhoi/HangLaiXe.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F1aG9pXEhhbmdMYWlYZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dh520/source/repos/GPLX/Views/Cauhoi/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F1aG9pXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dh520/source/repos/GPLX/Views/Cauhoi/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F1aG9pXExvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dh520/source/repos/GPLX/Views/Cauhoi/Sua.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F1aG9pXFN1YS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dh520/source/repos/GPLX/Views/Cauhoi/SuaChuong.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F1aG9pXFN1YUNodW9uZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dh520/source/repos/GPLX/Views/Cauhoi/Them.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F1aG9pXFRoZW0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dh520/source/repos/GPLX/Views/Cauhoi/ThemChuong.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F1aG9pXFRoZW1DaHVvbmcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dh520/source/repos/GPLX/Views/Cauhoi/ThemHang.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F1aG9pXFRoZW1IYW5nLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dh520/source/repos/GPLX/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dh520/source/repos/GPLX/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dh520/source/repos/GPLX/Views/LyThuyet/CauHaySai.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTHlUaHV5ZXRcQ2F1SGF5U2FpLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dh520/source/repos/GPLX/Views/LyThuyet/ChonHang.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTHlUaHV5ZXRcQ2hvbkhhbmcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dh520/source/repos/GPLX/Views/LyThuyet/Hoc.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTHlUaHV5ZXRcSG9jLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dh520/source/repos/GPLX/Views/LyThuyet/Thi.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTHlUaHV5ZXRcVGhpLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dh520/source/repos/GPLX/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dh520/source/repos/GPLX/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dh520/source/repos/GPLX/Views/Views/Cauhoi/Chuong.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlld3NcQ2F1aG9pXENodW9uZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dh520/source/repos/GPLX/Views/Views/Cauhoi/HangLaiXe.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlld3NcQ2F1aG9pXEhhbmdMYWlYZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dh520/source/repos/GPLX/Views/Views/Cauhoi/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlld3NcQ2F1aG9pXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dh520/source/repos/GPLX/Views/Views/Cauhoi/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlld3NcQ2F1aG9pXExvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dh520/source/repos/GPLX/Views/Views/Cauhoi/Sua.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlld3NcQ2F1aG9pXFN1YS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dh520/source/repos/GPLX/Views/Views/Cauhoi/SuaChuong.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlld3NcQ2F1aG9pXFN1YUNodW9uZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dh520/source/repos/GPLX/Views/Views/Cauhoi/Them.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlld3NcQ2F1aG9pXFRoZW0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dh520/source/repos/GPLX/Views/Views/Cauhoi/ThemChuong.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlld3NcQ2F1aG9pXFRoZW1DaHVvbmcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dh520/source/repos/GPLX/Views/Views/Cauhoi/ThemHang.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlld3NcQ2F1aG9pXFRoZW1IYW5nLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dh520/source/repos/GPLX/Views/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dh520/source/repos/GPLX/Views/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dh520/source/repos/GPLX/Views/Views/LyThuyet/CauHaySai.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlld3NcTHlUaHV5ZXRcQ2F1SGF5U2FpLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dh520/source/repos/GPLX/Views/Views/LyThuyet/ChonHang.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlld3NcTHlUaHV5ZXRcQ2hvbkhhbmcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dh520/source/repos/GPLX/Views/Views/LyThuyet/Hoc.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlld3NcTHlUaHV5ZXRcSG9jLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dh520/source/repos/GPLX/Views/Views/LyThuyet/Thi.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlld3NcTHlUaHV5ZXRcVGhpLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dh520/source/repos/GPLX/Views/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dh520/source/repos/GPLX/Views/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dh520/source/repos/GPLX/Views/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dh520/source/repos/GPLX/Views/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dh520/source/repos/GPLX/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dh520/source/repos/GPLX/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dh520/source/repos/GPLX/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-wa7nqrmkue
+
+[C:/Users/dh520/source/repos/GPLX/Views/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-bxt3ilez5d
