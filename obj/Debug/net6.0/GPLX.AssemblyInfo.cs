@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GPLX")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dd9a76a258f71139ebb68b5a24a0fcfafff729cf")]
 [assembly: System.Reflection.AssemblyProductAttribute("GPLX")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GPLX")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
