@@ -301,6 +301,7 @@
     let currentQuestionIndex = -999; // Chỉ số của câu hỏi hiện tại
     let autoSwitchEnabled = false;
     let ques = [];
+    
     class Questions {
         #question;
         #id;
@@ -318,16 +319,33 @@
                 data: { id: id },
                 dataType: 'json',
                 success: (response) => {
-                    updateTimer()
+                    updateTimer();
+                    // Trộn câu hỏi ngẫu nhiên
                     response.$values.sort(() => Math.random() - 0.5);
+
+                    // Lưu dữ liệu vào localStorage
+                    localStorage.setItem('questions', JSON.stringify(response.$values));
+
+                    // Cập nhật biến nội bộ
                     this.#question = response.$values;
                     this.#length = this.#question.length;
                     ques = Array(lsQuestion.getLength()).fill(-1);
                 },
-                error: function (xhr, status, error) {
+                error: (xhr, status, error) => {
                     console.error(xhr);
-                    alert('Lỗi: ' + status);
-                    console.log(this.#id)
+                    alert(xhr.responseText);
+
+                    // Nếu xảy ra lỗi, lấy dữ liệu từ localStorage
+                    const cachedQuestions = localStorage.getItem('questions');
+                    if (cachedQuestions) {
+                        console.log("Loading questions from localStorage...");
+                        const parsedQuestions = JSON.parse(cachedQuestions);
+                        this.#question = parsedQuestions;
+                        this.#length = parsedQuestions.length;
+                        ques = Array(lsQuestion.getLength()).fill(-1);
+                    } else {
+                        console.error("No questions found in localStorage.");
+                    }
                 }
             });
         }

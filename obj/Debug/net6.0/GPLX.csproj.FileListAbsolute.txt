@@ -253,6 +253,6 @@ C:\Users\dh520\source\repos\GPLX\bin\Debug\net6.0\runtimes\win\lib\net6.0\System
 C:\Users\dh520\source\repos\GPLX\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 C:\Users\dh520\source\repos\GPLX\obj\Debug\net6.0\GPLX.csproj.AssemblyReference.cache
 C:\Users\dh520\source\repos\GPLX\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
-C:\Users\dh520\source\repos\GPLX\obj\Debug\net6.0\scopedcss\Views\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\dh520\source\repos\GPLX\obj\Debug\net6.0\scopedcss\projectbundle\GPLX.bundle.scp.css
 C:\Users\dh520\source\repos\GPLX\obj\Debug\net6.0\GPLX.csproj.Up2Date
+C:\Users\dh520\source\repos\GPLX\obj\Debug\net6.0\GPLX.sourcelink.json

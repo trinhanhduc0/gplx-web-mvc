@@ -3,6 +3,7 @@
     public class DataUser
     {
         private string _id;
+        private string hang;
         private List<int> lsCauSai;
         private List<int> lsCau;
         private List<int> luaChons;
@@ -12,8 +13,11 @@
             lsCau = new List<int>(0);
             lsCauSai = new List<int>(0);
             Id = "1";
+            hang = "";
         }
         public string Id { get => _id; set => _id = value; }
+
+        public string Hang { get => hang; set => hang = value; }
 
         public List<int> CauSais { get => lsCauSai; set => lsCauSai = value; }
 

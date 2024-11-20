@@ -511,7 +511,7 @@
         $('#content').empty();
         var row = `<div style="width: 100%; font-size: 1.5rem;" class="question-container">
                             <div class="question-order ${lsQuestion.getParalysis(index) ? 'text-danger' : ''}">
-                                <u><b>Câu hỏi ${index + 1}</b></u><sup>${lsQuestion.getValueQuestionByIndex(index).IdCau}</sup> :
+                                <u><b>Câu hỏi ${index + 1}</b></u> :
                             </div>
                             <div class="d-flex justify-content-center">
                                 <img id="image${index}" class="py-4 rounded img-fluid w-md-50 d-none" src="" alt="Hình ảnh câu hỏi ${index + 1}">
@@ -577,7 +577,7 @@
 
     var id = '@ViewBag.Cookies';
     var modeTest = "@ViewBag.setTest";
-    var getLink = "/LyThuyet/LayCauHoi";
+    var getLink = "@ViewBag.Link";
     let currentQuestionIndex = 0; // Chỉ số của câu hỏi hiện tại
     let autoSwitchEnabled = false;
     let ques = [];

@@ -40,7 +40,21 @@ namespace DemoGPLX.Controllers
             DataUser user = JsonConvert.DeserializeObject<DataUser>(HttpContext.Request.Cookies["DataUserGPLX"]);
 
             ViewBag.Cookies = user.Id;
+            ViewBag.Link = "/LyThuyet/LayCauHoi";
             return View();
+        }
+
+        public IActionResult CauDiemLiet()
+        {
+            if (HttpContext.Request.Cookies["DataUserGPLX"] == null)
+            {
+                return RedirectToAction("ChonHang");
+            }
+            DataUser user = JsonConvert.DeserializeObject<DataUser>(HttpContext.Request.Cookies["DataUserGPLX"]);
+
+            ViewBag.Cookies = user.Id;
+            ViewBag.Link = "/LyThuyet/LayCauDiemLiet";
+            return View("Hoc");
         }
 
         public IActionResult Thi()
@@ -106,11 +120,12 @@ namespace DemoGPLX.Controllers
         }
 
 
-        public IActionResult ChonHangThi(string id)
+        public IActionResult ChonHangThi(string id, string hang)
         {
             HttpContext.Response.Cookies.Delete("DataUserGPLX");
             DataUser data = new DataUser();
             data.Id = id;
+            data.Hang = hang;
             HttpContext.Response.Cookies.Append("DataUserGPLX", JsonConvert.SerializeObject(data), options);
             return RedirectToAction("Hoc");
         }
@@ -121,21 +136,60 @@ namespace DemoGPLX.Controllers
             const string cacheKeyPrefix = "QuestionData_";
             string cacheKey = $"{cacheKeyPrefix}{id}";
 
-            // Kiểm tra dữ liệu câu hỏi trong cache
-            if (!_cache.TryGetValue(cacheKey, out List<Cau> data))
+            // Kiểm tra dữ liệu danh sách câu hỏi trong cache
+            if (!_cache.TryGetValue(cacheKey, out List<Cau> allQuestions))
             {
                 // Nếu chưa có, gọi phương thức lấy dữ liệu câu hỏi
-                data = QuestionUtil.GetDataWithID(id);
+                allQuestions = QuestionUtil.GetDataWithID(id);
 
-                // Lưu dữ liệu vào cache với thời gian sống 10 phút (tùy chỉnh theo yêu cầu)
-                _cache.Set(cacheKey, data, new MemoryCacheEntryOptions
+                // Lưu dữ liệu vào cache với thời gian sống 10 phút
+                _cache.Set(cacheKey, allQuestions, new MemoryCacheEntryOptions
                 {
                     AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(10)
                 });
             }
 
-            // Trả về dữ liệu từ cache hoặc vừa truy xuất
-            return Json(data, opt);
+            // Trả về danh sách tất cả câu hỏi
+            return Json(allQuestions, opt);
+        }
+
+        [HttpPost]
+        public JsonResult LayCauDiemLiet(int id)
+        {
+            const string questionCacheKeyPrefix = "QuestionData_";
+            const string paralysisCacheKeyPrefix = "ParalysisData_";
+
+            string questionCacheKey = $"{questionCacheKeyPrefix}{id}";
+            string paralysisCacheKey = $"{paralysisCacheKeyPrefix}{id}";
+
+            // Kiểm tra cache danh sách câu điểm liệt
+            if (!_cache.TryGetValue(paralysisCacheKey, out List<Cau> paralysisQuestions))
+            {
+                // Nếu chưa có cache câu điểm liệt, kiểm tra cache danh sách câu hỏi
+                if (!_cache.TryGetValue(questionCacheKey, out List<Cau> allQuestions))
+                {
+                    // Nếu chưa có cache câu hỏi, gọi phương thức lấy dữ liệu câu hỏi
+                    allQuestions = QuestionUtil.GetDataWithID(id);
+
+                    // Lưu danh sách câu hỏi vào cache
+                    _cache.Set(questionCacheKey, allQuestions, new MemoryCacheEntryOptions
+                    {
+                        AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(10)
+                    });
+                }
+
+                // Lọc danh sách câu điểm liệt từ danh sách câu hỏi
+                paralysisQuestions = allQuestions.Where(q => q.Ttcaus.First().Diemliet == true).ToList();
+
+                // Lưu danh sách câu điểm liệt vào cache
+                _cache.Set(paralysisCacheKey, paralysisQuestions, new MemoryCacheEntryOptions
+                {
+                    AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(10)
+                });
+            }
+
+            // Trả về danh sách câu điểm liệt từ cache
+            return Json(paralysisQuestions, opt);
         }
 
 
@@ -210,9 +264,9 @@ namespace DemoGPLX.Controllers
             // Kiểm tra trong cache xem đã đủ 5 phút chưa
             if (_cache.TryGetValue(cacheKey, out DateTime lastTestTime))
             {
-                if (DateTime.Now < lastTestTime.AddMinutes(10))
+                if (DateTime.Now < lastTestTime.AddMinutes(5))
                 {
-                    var remainingTime = lastTestTime.AddMinutes(10) - DateTime.Now;
+                    var remainingTime = lastTestTime.AddMinutes(5) - DateTime.Now;
                     return BadRequest($"Bạn cần chờ thêm {remainingTime.Minutes} phút {remainingTime.Seconds} giây để lấy đề thi mới.");
                 }
             }
