@@ -385,11 +385,12 @@
     function displaySelectedQuestions() {
         renderSelectQuestion();
         $.ajax({
-            url: "/LyThuyet/LayCauDaLam",
+            url: `${cauDaLam}`,
             type: 'POST',
             data: { id: id },
             dataType: 'json',
             success: (response) => {
+                console.log(response, response['0'], response['1'])
                 showQuestionDone(response['0']);
                 response['1'].forEach((e, i) => {
                     ques[response[0][i]] = e;
@@ -471,14 +472,14 @@
 
             //Thêm vào danh sách câu hỏi đã làm
             $.ajax({
-                url: "/LyThuyet/ThemCau",
+                url: `${themCau}`,
                 type: 'POST',
                 data: { id: questionIndex, index: chooseIndex }, // Use optional chaining to handle null values
                 dataType: 'json',
                 success: (response) => {
                     if (chooseAnswerIndex != chooseIndex) {
                         $.ajax({
-                            url: "/LyThuyet/ThemCauSai",
+                            url: `${themCauSai}`,
                             type: 'POST',
                             data: { id: lsQuestion.getValueQuestionByIndex(questionIndex).Stt }, // Use optional chaining to handle null values
                             dataType: 'json',
@@ -533,7 +534,7 @@
 
         if (item.Ttcaus.$values[0].Hinhcauhoi == "iQ==") {
             $.ajax({
-                url: "/LyThuyet/LayHinHCauHoi",
+                url: "/LyThuyet/LayHinhCauHoi",
                 type: 'POST',
                 data: { id: lsQuestion.getValueQuestionByIndex(index).IdCau },
                 dataType: 'json',
@@ -578,6 +579,10 @@
     var id = '@ViewBag.Cookies';
     var modeTest = "@ViewBag.setTest";
     var getLink = "@ViewBag.Link";
+    var themCau = "@ViewBag.ThemCau";
+    var themCauSai = "@ViewBag.ThemCauSai";
+    var cauDaLam = "@ViewBag.CauDaLam";
+
     let currentQuestionIndex = 0; // Chỉ số của câu hỏi hiện tại
     let autoSwitchEnabled = false;
     let ques = [];

@@ -41,6 +41,9 @@ namespace DemoGPLX.Controllers
 
             ViewBag.Cookies = user.Id;
             ViewBag.Link = "/LyThuyet/LayCauHoi";
+            ViewBag.ThemCau = "/LyThuyet/ThemCau";
+            ViewBag.ThemCauSai = "/LyThuyet/ThemCauSai";
+            ViewBag.CauDaLam = "/LyThuyet/LayCauDaLam";
             return View();
         }
 
@@ -54,6 +57,10 @@ namespace DemoGPLX.Controllers
 
             ViewBag.Cookies = user.Id;
             ViewBag.Link = "/LyThuyet/LayCauDiemLiet";
+            ViewBag.ThemCau = "/LyThuyet/ThemCauDiemLiet";
+            ViewBag.ThemCauSai = "/LyThuyet/ThemCauDiemLietSai";
+            ViewBag.CauDaLam = "/LyThuyet/LayCauDiemLietDaLam";
+
             return View("Hoc");
         }
 
@@ -199,7 +206,6 @@ namespace DemoGPLX.Controllers
             try
             {
                 DataUser data = JsonConvert.DeserializeObject<DataUser>(HttpContext.Request.Cookies["DataUserGPLX"]);
-
                 if (data.Caus.IndexOf(id) == -1)
                 {
                     data.Caus.Add(id);
@@ -241,6 +247,19 @@ namespace DemoGPLX.Controllers
             }
         }
 
+
+        [HttpPost]
+        public IActionResult LayCauDaLam()
+        {
+            List<List<int>> ls = new List<List<int>>() {
+                new List<int>(JsonConvert.DeserializeObject<DataUser>(HttpContext.Request.Cookies["DataUserGPLX"]).Caus),
+                new List<int>(JsonConvert.DeserializeObject<DataUser>(HttpContext.Request.Cookies["DataUserGPLX"]).LuaChons)
+            };
+
+
+            return Json(ls);
+        }
+
         public IActionResult LayCauSai()
         {
             if (HttpContext.Request.Cookies["DataUserGPLX"] == null)
@@ -255,6 +274,69 @@ namespace DemoGPLX.Controllers
             }
             return Json(lsCauHaySai, opt);
         }
+
+        [HttpPost]
+        public IActionResult ThemCauDiemLiet(int id, int index)
+        {
+            try
+            {
+                DataUser data = JsonConvert.DeserializeObject<DataUser>(HttpContext.Request.Cookies["DataUserGPLX"]);
+                if (data != null)
+                {
+                    if (data.CauDiemLiet.IndexOf(id) == -1)
+                    {
+                        data.CauDiemLiet.Add(id);
+                        data.LuaChonDiemLiet.Add(index);
+                    }
+
+                    // Update user data
+                    HttpContext.Response.Cookies.Append("DataUserGPLX", JsonConvert.SerializeObject(data), options);
+
+                    // Optionally, return the updated data as JSON
+                }
+                return Json(data);
+            }
+            catch (Exception)
+            {
+                // Handle exceptions appropriately
+                return BadRequest("An error occurred while updating user data.");
+            }
+        }
+
+        [HttpPost]
+        public IActionResult ThemCauDiemLietSai(int id)
+        {
+            try
+            {
+                DataUser data = JsonConvert.DeserializeObject<DataUser>(HttpContext.Request.Cookies["DataUserGPLX"]);
+                if(data != null)
+                {
+                    if (data.CauDiemLiet.IndexOf(id) == -1)
+                        data.CauDiemLiet.Add(id);
+                    // Update user data
+                    HttpContext.Response.Cookies.Append("DataUserGPLX", JsonConvert.SerializeObject(data));
+
+                    // Optionally, return the updated data as JSON
+                }
+                return Json(data);
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions appropriately
+                return BadRequest("An error occurred while updating user data.");
+            }
+        }
+
+        [HttpPost]
+        public IActionResult LayCauDiemLietDaLam()
+        {
+            List<List<int>> ls = new List<List<int>>() {
+                new List<int>(JsonConvert.DeserializeObject<DataUser>(HttpContext.Request.Cookies["DataUserGPLX"]).CauDiemLiet),
+                new List<int>(JsonConvert.DeserializeObject<DataUser>(HttpContext.Request.Cookies["DataUserGPLX"]).LuaChonDiemLiet)
+            };
+            return Json(ls);
+        }
+
         [HttpPost]
         public IActionResult LayDeThiMoi(int id)
         {
@@ -286,20 +368,6 @@ namespace DemoGPLX.Controllers
 
             return Json(questions, opt);
         }
-
-
-        [HttpPost]
-        public IActionResult LayCauDaLam()
-        {
-            List<List<int>> ls = new List<List<int>>() {
-                new List<int>(JsonConvert.DeserializeObject<DataUser>(HttpContext.Request.Cookies["DataUserGPLX"]).Caus),
-                new List<int>(JsonConvert.DeserializeObject<DataUser>(HttpContext.Request.Cookies["DataUserGPLX"]).LuaChons)
-            };
-
-
-            return Json(ls);
-        }
-
 
         [HttpPost]
         public IActionResult LayHinhCauHoi(int id)

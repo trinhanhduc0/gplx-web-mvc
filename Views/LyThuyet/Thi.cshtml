@@ -211,6 +211,10 @@
         crossorigin="anonymous"></script>
 
 <script>
+
+
+    // Kích thước font chữ ban đầu
+    let fontSize = 1;
     document.addEventListener('keydown', function (event) {
         // Check which key was pressed
         switch (event.keyCode) {
@@ -263,7 +267,6 @@
         // Optionally, you can hide or disable the Start button once the exam has started
         $('#startBtn').prop('hidden', true);
     });
-
     // Make sure to focus on an element that can receive keyboard input
     document.body.setAttribute('tabindex', 0);
     document.body.focus();
@@ -295,13 +298,9 @@
         }
     }
     
-    var id = '@ViewBag.Cookies';
-    var submit = 0;
-    var getLink = "/LyThuyet/LayDeThiMoi"
-    let currentQuestionIndex = -999; // Chỉ số của câu hỏi hiện tại
-    let autoSwitchEnabled = false;
-    let ques = [];
-    
+   X
+
+
     class Questions {
         #question;
         #id;
@@ -421,8 +420,6 @@
         }, 1000); // Thay đổi số 2000 thành số thời gian tùy chỉnh (ms) giữa các câu hỏi.
     }
 
-    // Kích thước font chữ ban đầu
-    let fontSize = 1;
 
     // Sự kiện tăng kích thước
     $('#increase-font-size').click(function () {
