@@ -72,6 +72,7 @@ namespace DemoGPLX.Controllers
             }
             DataUser user = JsonConvert.DeserializeObject<DataUser>(HttpContext.Request.Cookies["DataUserGPLX"]);
             ViewBag.Cookies = user.Id;
+            ViewBag.Link = "/LyThuyet/LayDeThiMoi";
             ViewBag.setTest = true;
             ViewBag.time = new DbGplxContext().Hangs.Where(e => e.IdHang == int.Parse(user.Id)).FirstOrDefault().Thoigianthi;
             return View();

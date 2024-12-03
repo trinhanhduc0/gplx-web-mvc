@@ -1,11 +1,5 @@
 ﻿@page
-<div id="questionOverlay" class="overlay">
-    <button id="closeOverlayBtn" class="w-50"><img width="64" height="64" src="https://img.icons8.com/nolan/64/exit.png" alt="exit" /></button>
-    <div id="selectedQuestions" class="selected-questions h-100 w-50">
 
-        <!--Show-->
-    </div>
-</div>
 <style>
     /* Default styles for mainContent and test_content */
     .choose-val {
@@ -163,10 +157,19 @@
         border: none;
     }
 </style>
-    <div class="row m-2">
-        <button id="startBtn" class="btn btn-lg btn-primary">Bắt đầu làm bài thi</button>
-        <div id="timer" class="ms-2"></div>
+
+<div id="questionOverlay" class="overlay">
+    <button id="closeOverlayBtn" class="w-50"><img width="64" height="64" src="https://img.icons8.com/nolan/64/exit.png" alt="exit" /></button>
+    <div id="selectedQuestions" class="selected-questions h-100 w-50">
+
+        <!--Show-->
     </div>
+</div>
+
+<div class="row m-2">
+    <button id="startBtn" class="btn btn-lg btn-primary d-none">Bắt đầu làm bài thi</button>
+    <div id="timer" class="ms-2"></div>
+</div>
 
 <div class="container">
     <div class="container d-flex flex-column justify-content-center align-items-center">
@@ -184,7 +187,7 @@
             </button>
         </div>
         <div class="row m-2">
-             <button id="submitBtn" class="btn btn-primary">Nộp bài</button>
+            <button id="submitBtn" class="btn btn-primary">Nộp bài</button>
             <div id="timer" class="ms-2"></div>
         </div>
         <div class="row m-2">
@@ -206,13 +209,8 @@
         </div>
     </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.7.1.js"
-        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-        crossorigin="anonymous"></script>
 
 <script>
-
-
     // Kích thước font chữ ban đầu
     let fontSize = 1;
     document.addEventListener('keydown', function (event) {
@@ -254,10 +252,6 @@
         }
     });
     $('#startBtn').click(function () {
-        // Add any additional logic you need to initialize the exam
-        // For example, you may want to fetch questions or set up other parameters
-        // ...
-
         // Display the first question
         showQuestion(0);
 
@@ -270,7 +264,7 @@
     // Make sure to focus on an element that can receive keyboard input
     document.body.setAttribute('tabindex', 0);
     document.body.focus();
-    var time = @ViewBag.time * 60+1;
+    var time = @ViewBag.time * 60 + 1;
 
     function formatTime(value) {
         return value < 10 ? "0" + value : value;
@@ -297,8 +291,8 @@
             time--;
         }
     }
-    
-   X
+
+
 
 
     class Questions {
@@ -307,6 +301,7 @@
         #length;
 
         constructor(id) {
+            console.log(id)
             this.#id = id;
             this.#getQuestion();
         }
@@ -327,8 +322,10 @@
 
                     // Cập nhật biến nội bộ
                     this.#question = response.$values;
+                    console.log(this.#question)
                     this.#length = this.#question.length;
                     ques = Array(lsQuestion.getLength()).fill(-1);
+                     $('#startBtn').removeClass("d-none")
                 },
                 error: (xhr, status, error) => {
                     console.error(xhr);
@@ -373,7 +370,8 @@
         }
     }
     updateTimer();
-    const lsQuestion = new Questions(id);
+
+
 
 
     // Sự kiện nút "Nộp bài"
@@ -487,11 +485,11 @@
         for (let i = 0; i < lsQuestion.getLength(); i++) {
             const isSelected = ques[i] > -1;
             const selectedQuestionButton = $(`
-                                <button style="width:60px;" class="btn btn-${isSelected ? 'success' : 'secondary'} m-1"
-                                    onclick="selectQuestion(${i})" id="select_ques_${i}">
-                                ${i + 1}
-                            </button>
-                        `);
+                                    <button style="width:60px;" class="btn btn-${isSelected ? 'success' : 'secondary'} m-1"
+                                        onclick="selectQuestion(${i})" id="select_ques_${i}">
+                                    ${i + 1}
+                                </button>
+                            `);
 
             selectedQuestionsDiv.append(selectedQuestionButton);
         }
@@ -514,26 +512,19 @@
     // Chọn câu hỏi
     function chooseQuestion(questionIndex, chooseIndex = ques[questionIndex] /*Lấy lựa chọn*/) {
         ques[questionIndex] = chooseIndex;
-        let chooseAnswerIndex = lsQuestion.getCorrectQuestionByIndex(questionIndex); // Đáp án đúng
-        let showAnswer = `#choice${questionIndex}-${chooseAnswerIndex}`;
-        if (submit == 1) {
-            $(showAnswer).parent('.choose-val').css("background-color", "blue");
-        }
-        else if (chooseIndex > -1) {
-
-            let showChoose = `#choice${questionIndex}-${chooseIndex}`;
-
+        let showAnswer = `#choice${questionIndex}-${chooseIndex}`;
+        if (chooseIndex > -1) {
             // Gỡ bỏ màu nền của tất cả các lựa chọn
             $('.choose-val').css("background-color", "transparent");
 
             // Đặt màu nền của lựa chọn đã chọn thành màu đỏ (red)
-            $(showChoose).parent('.choose-val').css("background-color", "red");
-            $(showChoose).prop("checked", true);
+            $(showAnswer).parent('.choose-val').css("background-color", "blue");
+            $(showAnswer).prop("checked", true);
 
             //Đánh dấu câu hỏi đã làm
             $("#select_ques_" + questionIndex).addClass("btn-success")
             $("#select_ques_" + questionIndex).removeClass("btn-secondary")
-            
+
 
             //Thêm vào danh sách câu hỏi đã làm
             $.ajax({
@@ -542,7 +533,7 @@
                 data: { id: lsQuestion.getValueQuestionByIndex(questionIndex).Stt }, // Use optional chaining to handle null values
                 dataType: 'json',
                 success: (response) => {
-                    console.log(response);
+                    let chooseAnswerIndex = lsQuestion.getCorrectQuestionByIndex(questionIndex); // Đáp án đúng trong mảng là 1-based
                     if (chooseAnswerIndex != chooseIndex) {
                         $.ajax({
                             url: "/LyThuyet/ThemCauSai",
@@ -564,8 +555,6 @@
                     alert('Lỗi: ' + status);
                 }
             });
-
-
         }
     }
 
@@ -576,22 +565,22 @@
         console.log(item)
         $('#content').empty();
         var row = `<div style="width: 100%; font-size: 1.5rem;" class="question-container">
-                                        <div class="question-order">
-                                            <u><b>Câu hỏi ${index + 1}</b></u> :
-                                        </div>
-                                        <div class="mh-50 d-flex justify-content-center">
-                                             <img id="image${index}" class="py-4 rounded img-fluid w-md-50 d-none" src="" alt="Hình ảnh câu hỏi ${index + 1}">
-                                        </div>
-                                        <div class="options button-group flex flex-col space-y-4">`;
+                                            <div class="question-order">
+                                                <u><b>Câu hỏi ${index + 1}</b></u> :
+                                            </div>
+                                            <div class="mh-50 d-flex justify-content-center">
+                                                 <img id="image${index}" class="py-4 rounded img-fluid w-md-50 d-none" src="" alt="Hình ảnh câu hỏi ${index + 1}">
+                                            </div>
+                                            <div class="options button-group flex flex-col space-y-4">`;
 
 
         $.each(item.Dapans.$values, (indexQ, c) => {
             row += `    <div class="choose-val w-full p-2 flex items-center space-x-4 border-solid m-2 border border-2" onclick="chooseQuestion(${index},${indexQ + 1});autoSwitch(${index});">
-                                            <span class="index-span">${indexQ + 1}</span>
-                                            <input type="radio" class="btn-check" name="question" id="choice${index}-${indexQ + 1}">
-                                            <label class="ml-2 w-100" for="choice${index}-${indexQ + 1}">${c.Dapan1}</label>
-                                        </div>
-                                    `;
+                                                <span class="index-span">${indexQ + 1}</span>
+                                                <input type="radio" class="btn-check" name="question" id="choice${index}-${indexQ + 1}">
+                                                <label class="ml-2 w-100" for="choice${index}-${indexQ + 1}">${c.Dapan1}</label>
+                                            </div>
+                                        `;
         });
 
         row += '</div></div>';
@@ -638,4 +627,12 @@
         (e || window.event).returnValue = confirmationMessage; // Standard
         return confirmationMessage;
     });
+
+    var id = '@ViewBag.Cookies';
+    var getLink = "@ViewBag.Link";
+    var submit = "@ViewBag.setTest"
+    let ques = [];
+
+    const lsQuestion = new Questions(id);
+
 </script>
