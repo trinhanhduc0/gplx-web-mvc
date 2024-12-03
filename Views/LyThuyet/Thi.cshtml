@@ -339,6 +339,7 @@
                         this.#question = parsedQuestions;
                         this.#length = parsedQuestions.length;
                         ques = Array(lsQuestion.getLength()).fill(-1);
+                        $('#startBtn').removeClass("d-none")
                     } else {
                         console.error("No questions found in localStorage.");
                     }
